@@ -36,9 +36,9 @@ function App() {
     <ThemeProvider>
       <AuthProvider>
         <Router>
-          <div className="min-h-screen bg-gray-50 dark:bg-gray-900 flex flex-col">
+          <div className=" min-h-screen bg-gray-50 dark:bg-gray-900 flex flex-col">
             <Navbar />
-            <main className="flex-1">
+            <main className="flex-1 w-full px-2 sm:px-4 lg:px-8 py-4">
               <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/login" element={<Login />} />

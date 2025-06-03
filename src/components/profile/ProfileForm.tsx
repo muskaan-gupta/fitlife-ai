@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Input } from '../ui/input';
 import { Select } from '../ui/select';
-import { TextArea } from '../ui/textarea';
+import { Textarea } from '../ui/textarea';
 import { Button } from '../ui/button';
 import { Card } from '../ui/card';
 import { useAuth } from '../../context/AuthContext';
@@ -143,19 +143,21 @@ export const ProfileForm: React.FC = () => {
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <Select
-            label="Gender"
             name="gender"
             value={profile.gender}
-            onChange={handleChange}
-            options={[
-              { value: 'Male', label: 'Male' },
-              { value: 'Female', label: 'Female' },
-              { value: 'Non-Binary', label: 'Non-Binary' },
-              { value: 'Prefer not to say', label: 'Prefer not to say' },
-            ]}
+            onValueChange={(value) =>
+              setProfile((prev) => ({ ...prev, gender: value }))
+            }
             required
-            placeholder="Select your gender"
-          />
+          >
+            <option value="" disabled>
+              Select your gender
+            </option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Non-Binary">Non-Binary</option>
+            <option value="Prefer not to say">Prefer not to say</option>
+          </Select>
           
           <div className="grid grid-cols-2 gap-4">
             <Input
@@ -179,52 +181,55 @@ export const ProfileForm: React.FC = () => {
             />
           </div>
         </div>
-        
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <Select
-            label="Fitness Goal"
             name="fitnessGoal"
             value={profile.fitnessGoal}
-            onChange={handleChange}
-            options={[
-              { value: 'Weight Loss', label: 'Weight Loss' },
-              { value: 'Muscle Gain', label: 'Muscle Gain' },
-              { value: 'Endurance', label: 'Endurance' },
-              { value: 'Flexibility', label: 'Flexibility' },
-              { value: 'Maintenance', label: 'Maintenance' },
-              { value: 'General Health', label: 'General Health' },
-            ]}
+            onValueChange={(value) =>
+              setProfile((prev) => ({ ...prev, fitnessGoal: value }))
+            }
             required
-            placeholder="Select your fitness goal"
-          />
-          
+          >
+            <option value="" disabled>
+              Select your fitness goal
+            </option>
+            <option value="Weight Loss">Weight Loss</option>
+            <option value="Muscle Gain">Muscle Gain</option>
+            <option value="Endurance">Endurance</option>
+            <option value="Flexibility">Flexibility</option>
+            <option value="Maintenance">Maintenance</option>
+            <option value="General Health">General Health</option>
+          </Select>
           <Select
-            label="Lifestyle"
             name="lifestyle"
             value={profile.lifestyle}
-            onChange={handleChange}
-            options={[
-              { value: 'Sedentary', label: 'Sedentary (little to no exercise)' },
-              { value: 'Lightly Active', label: 'Lightly Active (1-3 days/week)' },
-              { value: 'Moderately Active', label: 'Moderately Active (3-5 days/week)' },
-              { value: 'Very Active', label: 'Very Active (6-7 days/week)' },
-              { value: 'Athletic', label: 'Athletic (2x training/day)' },
-            ]}
+            onValueChange={(value) =>
+              setProfile((prev) => ({ ...prev, lifestyle: value }))
+            }
             required
-            placeholder="Select your lifestyle"
-          />
+          >
+            <option value="" disabled>
+              Select your lifestyle
+            </option>
+            <option value="Sedentary">Sedentary (little to no exercise)</option>
+            <option value="Lightly Active">Lightly Active (1-3 days/week)</option>
+            <option value="Moderately Active">Moderately Active (3-5 days/week)</option>
+            <option value="Very Active">Very Active (6-7 days/week)</option>
+            <option value="Athletic">Athletic (2x training/day)</option>
+          </Select>
         </div>
+
         
-        <TextArea
-          label="Medical Conditions (Optional)"
+        <Textarea
+          
           name="medicalConditions"
           value={profile.medicalConditions || ''}
           onChange={handleChange}
           placeholder="List any medical conditions, injuries, or limitations"
         />
         
-        <TextArea
-          label="Dietary Preferences (Optional)"
+        <Textarea
+
           name="dietaryPreferences"
           value={profile.dietaryPreferences || ''}
           onChange={handleChange}
@@ -241,6 +246,7 @@ export const ProfileForm: React.FC = () => {
             {isSaving ? 'Saving...' : 'Save Profile'}
           </Button>
         </div>
+      
       </form>
     </Card>
   );
