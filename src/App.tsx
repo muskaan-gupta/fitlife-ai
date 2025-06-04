@@ -82,10 +82,10 @@ function App() {
                 <div className="border-t border-gray-200 dark:border-gray-700 pt-6 flex flex-col md:flex-row justify-between items-center">
                   <div className="flex items-center">
                     <span className="text-blue-600 dark:text-blue-400 text-xl font-bold">FitLife</span>
-                    <span className="text-purple-600 dark:text-purple-400 text-xl font-bold">AI</span>
+                    <span className="text-purple-600 dark:text-purple-400 text-xl font-bold">-AI</span>
                   </div>
                   <div className="mt-4 md:mt-0 text-sm text-gray-500 dark:text-gray-400">
-                    &copy; {new Date().getFullYear()} FitLifeAI. All rights reserved.
+                    &copy; {new Date().getFullYear()} FitLifeAI. All rights reserved.(Muskan Gupta)
                   </div>
                 </div>
               </div>

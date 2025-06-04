@@ -37,34 +37,45 @@ export const LoginForm: React.FC = () => {
         </div>
       )}
       
-      <Input
-        type="email"
-       
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        placeholder="Enter your email"
-        required
-      />
-      
-      <Input
-        type="password"
-       
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-        placeholder="Enter your password"
-        required
-      />
+      <div>
+            <label className="block ml-4 text-sm font-medium text-gray-700 dark:text-gray-200 mb-1">
+              Email
+            </label>
+            <Input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="Enter your email"
+              required
+              className="w-97  ml-5 overflow-hidden  px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-700 focus:ring-2 focus:ring-blue-500"
+            />
+          </div>
+
+      <div>
+            <label className="block ml-4 text-sm font-medium text-gray-700 dark:text-gray-200 mb-1">
+              Password
+            </label>
+            <Input
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              placeholder="Enter your password"
+              required
+              className="w-97 ml-5 px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-700 focus:ring-2 focus:ring-blue-500"
+            />
+          </div>
       
       <div className="pt-2">
-        <Button
-          type="submit"
-          variant="default"
-          className="w-full"
-
-          disabled={isLoading}
-        >
-          Log In
-        </Button>
+       <div className="pt-2">
+            <Button
+              type="submit"
+              variant="default"
+              className="w-97 ml-5 text-blue py-2 rounded-lg  text-lg dark:text-black font-semibold"
+              disabled={isLoading}
+            >
+              {isLoading ? 'Logging in...' : 'Log In'}
+            </Button>
+          </div>
       </div>
     </form>
   );
